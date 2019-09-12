@@ -1,95 +1,27 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
- <head>
- <style>
-   .outer{
-     width: 620px;
-     height: 420px;
-     background: white;
-   }
-   .clickplay{
-     position: absolute;
-     top: 150px;
-     left: 290px;
-     font-family: Courier New;
-     font-weight: bold;
-     font-size: 20px;
-     width: 50px;
-     height: 30px;
-     background: red;
-     padding: 3px;
-     text-align: center;
-   }
-   
-   .clickplay:hover {
-     background: black;
-     color: white;
-     cursor: pointer
-   }
-   
-   .clickoptions{
-     position: absolute;
-     top: 190px;
-     left: 290px;
-     font-family: Courier New;
-     font-weight: bold;
-     font-size: 20px;
-     width: 100px;
-     height: 30px;
-     background: red;
-     padding: 3px;
-     text-align: center;
-   }
-   
-   .clickoptions:hover {
-     background: black;
-     color: white;
-     cursor: pointer
-   }
-   
-   .clickcredits{
-     position: absolute;
-     top: 230px;
-     left: 290px;
-     font-family: Courier New;
-     font-weight: bold;
-     font-size: 20px;
-     width: 100px;
-     height: 30px;
-     background: red;
-     padding: 3px;
-     text-align: center;
-   }
-   
-   .clickcredits:hover {
-     background: black;
-     color: white;
-     cursor: pointer
-   }
- </style>
- <script>
- function test(){
- 
- }
- </script>
- </head>
- <body onload="test()" style="background: black;">
- <div class="outer">
-  <div id="clickplay" class="clickplay">
-  <p style="position: relative; top: -15px;">
-  Play
-  </p>
-  </div>
-  <div id="clickoptions" class="clickoptions">
-  <p style="position: relative; top: -15px;">
-  Options
-  </p>
-  </div>
-  <div id="clickcredits" class="clickcredits">
-  <p style="position: relative; top: -15px;">
-  Credits
-  </p>
-  </div>
-  </div>
- </body>
+  <head>
+    <link rel = "stylesheet" src = "style.css">
+
+  </head>
+  <body style="background: black;">
+    <div class="outer">
+      <div id="clickplay" class="clickplay" onclick = "PlayButtonClick()">
+        <p style="position: relative; top: -15px;">
+          Play
+        </p>
+      </div>
+      <div id="clickoptions" class="clickoptions">
+        <p style="position: relative; top: -15px;">
+          Options
+        </p>
+      </div>
+      <div id="clickcredits" class="clickcredits">
+        <p style="position: relative; top: -15px;">
+          Credits
+        </p>
+      </div>
+    </div>
+  </body>
+  <script src = "content.js"></script>
 </html>
