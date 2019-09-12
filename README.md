@@ -1,2 +1,5 @@
-# Text-RPG-Game
-no u
+# MentalWarz
+MentalWarz, made by
+    RubixCube
+    YoshiPlays
+    Comrade Thotsky
