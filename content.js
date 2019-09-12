@@ -1,3 +1,3 @@
 function PlayButtonClick(){
-    location.href = "LevelOne.html";
+    location.href = "LevelOne.html"
 }
