@@ -9,6 +9,6 @@ export default class Player{
 	}
 	draw(ctx){
 		ctx.fillStyle = this.color;
-		ctx.fillRect(this.position.x, this.position.y, this.size, this.size)
+		ctx.fillRect(this.position.x, this.position.y, this.size, this.size);
 	}
 }
