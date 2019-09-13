@@ -28,8 +28,8 @@ document.addEventListener("keydown", function(event){
         c.clearRect(x,y,size,size);
         c.fillStyle = color;
         y += 20;
-        if(y >= 600){
-            y = 600;
+        if(y >= 600 - size){
+            y = 600 - size;
         }
         c.fillRect(x,y,size,size);
     }
@@ -37,8 +37,8 @@ document.addEventListener("keydown", function(event){
         c.clearRect(x,y,size,size);
         c.fillStyle = color;
         x += 20;
-        if(x >= 800){
-            x = 800;
+        if(x >= 800 - size){
+            x = 800 - size;
         }
         c.fillRect(x,y,size,size);
     }
