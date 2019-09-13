@@ -1,20 +1,24 @@
 let canvas = document.getElementById("gameScreen");
 let c = canvas.getContext("2d");
-var x = 20;
-var y = 20;
-var size = 100;
+var size = 50;
+var x = 0;
+var y = 600-size;
 var color = "red";
+var jump = false;
 document.addEventListener("keydown", function(event){
     console.log(event.which);
     // w
     if(event.which == 87){
-        c.clearRect(x,y,size,size);
-        c.fillStyle = color;
-        y -= 20;
-        if(y <= 0){
-            y = 0;
+        if(jump == false){
+            c.clearRect(x,y,size,size);
+            c.fillStyle = color;
+            y -= 100;
+            if(y <= 0){
+                y = 0;
+            }
+            c.fillRect(x,y,size,size);
+            jump = true;
         }
-        c.fillRect(x,y,size,size);
     }
     //a
     if(event.which == 65){
@@ -38,21 +42,33 @@ document.addEventListener("keydown", function(event){
     }
     //space
     if(event.which == 32){
-        c.clearRect(x,y,size,size);
-        c.fillStyle = color;
-        x -= 20;
-        if(x <= 0){
-            x = 0;
+        if(jump == false){
+            c.clearRect(x,y,size,size);
+            c.fillStyle = color;
+            y -= 100;
+            if(y <= 0){
+                y = 0;
+            }
+            c.fillRect(x,y,size,size);
+            jump = true;
         }
-        c.fillRect(x,y,size,size);
     }
 })
 function PlayerGravity(){
     y += 20;
-    if(y >= 600){
-        y = 600;
+    if(y >= 600-size){
+        y = 600-size;
+        jump = false;
     }
 }
-var interval = setInterval(PlayerGravity, 300);
-c.fillStyle = color;
-c.fillRect(x,y,size,size);
+function DrawPlayer(){
+    c.fillStyle = color;
+    c.fillRect(x,y,size,size);
+}
+function Game(){
+    c.clearRect(x,y,size,size);
+    PlayerGravity();
+    c.clearRect(x,y,size,size);
+    DrawPlayer();
+}
+var interval = setInterval(Game, 75);
