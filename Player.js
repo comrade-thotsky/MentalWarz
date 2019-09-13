@@ -5,8 +5,10 @@ export default class Player{
 			x : 0,
 			y : 0
 		};
+		this.color = "red"
 	}
 	draw(ctx){
+		ctx.fillStyle = this.color;
 		ctx.fillRect(this.position.x, this.position.y, this.size, this.size)
 	}
 }
