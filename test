@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "style.css">
+  <script>
+  function PlayButtonClick(){
+    location.href = "LevelOne.html"
+}
+
+function playMove(){
+ setTimeout(alert("test"), 1000);
+ }
+  </script>
+  </head>
+  <body style="background: black;">
+    <div class="outer">
+      <div id="clickplay" class="clickplay" onclick = "PlayButtonClick()" onmouseover="playMove()">
+        <p style="position: relative; top: -15px;">
+          Play
+        </p>
+      </div>
+      <div id="clickoptions" class="clickoptions">
+        <p style="position: relative; top: -15px;">
+          Options
+        </p>
+      </div>
+      <div id="clickcredits" class="clickcredits">
+        <p style="position: relative; top: -15px;">
+          Credits
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
