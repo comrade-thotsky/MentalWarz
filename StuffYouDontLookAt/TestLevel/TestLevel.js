@@ -1,7 +1,7 @@
 let canvas = document.getElementById("gameScreen");
 let c = canvas.getContext("2d");
 var size = 20;
-var position = [0,1];
+var position = [0,29];
 var Obsticals = [[5,10,2,2,"dynamicx", 5, 10, "up"]];
 var color = "blue";
 var jump = false;
@@ -11,21 +11,36 @@ document.addEventListener("keydown", function(event){
     console.log(event.which);
     // w
     if(event.which == 87){
+        ErasePlayer();
         if(jump == false){
+            position[1] -= 3;
             jump = true;
         }
+        DrawPlayer();
     }
     //a
     if(event.which == 65){
-
+        ErasePlayer();
+        position[0] -= 1;
+        if(position[0] <= 0){
+            position[0] = 0;
+        }
+        DrawPlayer();
     }
     //d
     if(event.which == 68){
+        ErasePlayer();
+        position[0] += 1;
+        if(position[0] >= 40){
+            position[0] = 40;
+        }
+        DrawPlayer();
     }
     //space
     if(event.which == 32){
         if(jump == false){
-
+            position[1] -= 3;
+            jump = true;
         }
     }
 })
@@ -33,6 +48,7 @@ function PlayerGravity(){
     position[1] += 1;
     if(position[1] >= 30){
         position[1] -= 1;
+        jump = false;
     }
     DrawPlayer();
 }
@@ -84,4 +100,4 @@ function Game(){
     DrawPlayer();
     DrawObstacles();
 }
-var interval = setInterval(Game, 60);
+var interval = setInterval(Game, 100);
