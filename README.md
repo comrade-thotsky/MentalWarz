@@ -14,8 +14,7 @@ What about your phone :thinking:
 
 
 #Jobs
-LilKalebFTW - HTML-er
+LilKalebFTW - HTML-er + CSS-er + organizer
 RubixCube - Javascript-er
 Comrade Thotsky- Freeloader
 Razboy20 - Css-er + HTML-er + >:(
-#LILKALEBFTW I can do HTML and CSS, I can also help organize this whole mess into a real project
