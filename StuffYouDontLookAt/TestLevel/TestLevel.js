@@ -134,6 +134,9 @@ function DrawObstacles(){
 
     });
 }
+function CreateObstacle(x,y,sizex,sizey,type,first,second,direction){
+  Obsticals.push([x,y,sizex,sizey,type,first,second,direction]);
+}
 function ErasePlayer(){
     c.clearRect(position[0]*20, position[1]*20, size, size);
 }
