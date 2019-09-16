@@ -1,6 +1,6 @@
 let canvas = document.getElementById("gameScreen");
 let c = canvas.getContext("2d");
-var $MyCanvas = $("#gameScreen");
+$MyCanvas = $("#gameScreen");
 var size = 20;
 var position = [0,29];
 var Obsticals = [[5,10,2,2,"dynamicy", 5, 10, "up"]];
@@ -18,6 +18,7 @@ document.addEventListener("keydown", function(event){
             jump = true;
         }
         DrawPlayer();
+
     }
     //a
     if(event.which == 65){
@@ -111,13 +112,15 @@ function Game(){
     PlayerGravity();
     DrawPlayer();
     DrawObstacles();
+    
+
 }
-var interval = setInterval(Game, 100);
+var interval = setInterval(Game, 120);
 
 
 
 $("#gameScreen").drawArc({
-            fillStyle: "red",
-            x : 100, y : 100,
-            radius : 50
+    fillStyle: "red",
+    x : 100, y : 100,
+    radius : 50
 });
