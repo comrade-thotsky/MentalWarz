@@ -18,3 +18,6 @@ LilKalebFTW - HTML-er + CSS-er + organizer
 RubixCube - Javascript-er
 Comrade Thotsky- Freeloader
 Razboy20 - Css-er + HTML-er + >:(
+
+#Discord
+https://discord.gg/Yu8SyZF
