@@ -8,8 +8,4 @@ Create elements and sprites,
 Create Main Functionality of the game before we add extra toxic stuff
 
 
-
-KALEB WHAT'S YOUR DISCORD :D
-Mine is LilKalebFTW
-I don't know my number after it
-Then why don't you look ? :thinking:
+Because I don't have discord on my laptop :thinking:
