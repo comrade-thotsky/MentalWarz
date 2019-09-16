@@ -12,11 +12,18 @@ document.addEventListener("keydown", function(event){
     console.log(event.which);
     // w
     if(event.which == 87){
-        ErasePlayer();
+      ErasePlayer();
         if(jump == false){
             position[1] -= 3;
             jump = true;
+            if(left == true){
+              position[0] -= 2;
+            }
+            if(right == true){
+              position[0] += 2;
+            }
         }
+
         DrawPlayer();
 
     }
@@ -28,6 +35,7 @@ document.addEventListener("keydown", function(event){
             position[0] = 0;
         }
         DrawPlayer();
+        left = true;
     }
     //d
     if(event.which == 68){
@@ -37,15 +45,37 @@ document.addEventListener("keydown", function(event){
             position[0] = 40;
         }
         DrawPlayer();
+        right = true;
     }
     //space
     if(event.which == 32){
+      ErasePlayer();
         if(jump == false){
             position[1] -= 3;
             jump = true;
+            if(left == true){
+              position[0] -= 2;
+            }
+            if(right == true){
+              position[0] += 2;
+            }
         }
+
+        DrawPlayer();
     }
-})
+});
+
+document.addEventListener("keyup", function(event){
+    console.log(event.which);
+    //a
+    if(event.which == 65){
+        left = false;
+    }
+    //d
+    if(event.which == 68){
+      right = false;
+    }
+});
 function PlayerGravity(){
     position[1] += 1;
     if(position[1] >= 30){
