@@ -9,3 +9,4 @@ Create Main Functionality of the game before we add extra toxic stuff
 
 
 Because I don't have discord on my laptop :thinking:
+What about your phone :thinking:
