@@ -1,7 +1,8 @@
 # MentalWarz
 (LilKalebFTW) Reorganized the file placement. We will use this file to talk about announcements because it automaticly shows up.
 
-(LilKalebFTW) #Tasks
+#Tasks
+(LilKalebFTW)
 Decide style of game,
 Create elements and sprites,
 Create Main Functionality of the game before we add extra toxic stuff
