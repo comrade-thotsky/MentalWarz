@@ -77,10 +77,10 @@ function DrawObstacles(){
             if(Ob[7] == "down"){
                 Ob[0] -= 1;
             }
-            if(Ob[0] >= Ob[6]){
+            if(Ob[1] >= Ob[6]){
                 Ob[7] = "down";
             }
-            if(Ob[0] <= Ob[5]){
+            if(Ob[1] <= Ob[5]){
                 Ob[7] = "up";
             }
         }
@@ -93,10 +93,10 @@ function DrawObstacles(){
                 Ob[1] -= 1;
             }
             if(Ob[1] >= Ob[6]){
-                Ob[8] = "down";
+                Ob[7] = "down";
             }
             if(Ob[1] <= Ob[5]){
-                Ob[8] = "up";
+                Ob[7] = "up";
             }
         }
         c.fillStyle = ObColor;
@@ -116,11 +116,3 @@ function Game(){
 
 }
 var interval = setInterval(Game, 120);
-
-
-
-$("#gameScreen").drawArc({
-    fillStyle: "red",
-    x : 100, y : 100,
-    radius : 50
-});
