@@ -1,3 +1,3 @@
 function OnClicked(){
-  location.href = "../../Game.html"
+  location.href = "../../Game.html";
 }
