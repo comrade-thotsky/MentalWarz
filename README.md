@@ -1,3 +1,7 @@
+#IMPORTANT
+DO NOT TOUCH THE LEVELONE.js UNTIL WE ARE DONE WITH GAME MECHANICS
+
+
 # MentalWarz
 (LilKalebFTW) Reorganized the file placement. We will use this file to talk about announcements because it automaticly shows up.
 
@@ -18,6 +22,9 @@ LilKalebFTW - HTML-er + CSS-er + organizer
 RubixCube - Javascript-er
 Comrade Thotsky- Freeloader
 Razboy20 - Css-er + HTML-er + >:(
+
+
+
 
 #Discord
 https://discord.gg/Yu8SyZF
