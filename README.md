@@ -1,11 +1,7 @@
 # MentalWarz
-MentalWarz, made by
-    RubixCube
-    YoshiPlays
-    Comrade Thotsky
-    LilKalebFTW
+(LilKalebFTW) Reorganized the file placement. We will use this file to talk about announcements because it automaticly shows up.
 
-#Tasks
+(LilKalebFTW) #Tasks
 Decide style of game,
 Create elements and sprites,
 Create Main Functionality of the game before we add extra toxic stuff
