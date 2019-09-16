@@ -34,6 +34,13 @@ document.addEventListener("keydown", function(event){
         if(position[0] <= 0){
             position[0] = 0;
         }
+        Obsticals.forEach(Ob => {
+            if(position[0] == Ob[0] - Ob[2] + 1){
+              if(position[1] == Ob[1] + Ob[3] - 1){
+                position[0] += 1;
+              }
+            }
+        });
         DrawPlayer();
         left = true;
     }
@@ -44,6 +51,13 @@ document.addEventListener("keydown", function(event){
         if(position[0] >= 40){
             position[0] = 40;
         }
+        Obsticals.forEach(Ob => {
+            if(position[0] == Ob[0]){
+              if(position[1] == Ob[1] + Ob[3] - 1){
+                position[0] -= 1;
+              }
+            }
+        });
         DrawPlayer();
         right = true;
     }
@@ -70,6 +84,7 @@ document.addEventListener("keyup", function(event){
     //a
     if(event.which == 65){
         left = false;
+
     }
     //d
     if(event.which == 68){
