@@ -112,7 +112,7 @@ function Game(){
     PlayerGravity();
     DrawPlayer();
     DrawObstacles();
-    
+
 
 }
 var interval = setInterval(Game, 120);
