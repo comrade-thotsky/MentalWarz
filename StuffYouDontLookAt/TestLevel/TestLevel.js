@@ -107,10 +107,10 @@ function DrawObstacles(){
             if(Ob[7] == "down"){
                 Ob[0] -= 1;
             }
-            if(Ob[1] >= Ob[6]){
+            if(Ob[0] >= Ob[6]){
                 Ob[7] = "down";
             }
-            if(Ob[1] <= Ob[5]){
+            if(Ob[0] <= Ob[5]){
                 Ob[7] = "up";
             }
         }
@@ -145,7 +145,5 @@ function Game(){
     PlayerGravity();
     DrawPlayer();
     DrawObstacles();
-
-
 }
 var interval = setInterval(Game, 120);
