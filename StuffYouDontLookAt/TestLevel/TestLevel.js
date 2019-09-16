@@ -2,7 +2,7 @@ let canvas = document.getElementById("gameScreen");
 let c = canvas.getContext("2d");
 var size = 20;
 var position = [0,29];
-var Obsticals = [[5,10,2,2,"dynamicx", 5, 10, "up"]];
+var Obsticals = [[5,10,2,2,"dynamicy", 5, 10, "up"]];
 var color = "blue";
 var jump = false;
 var left = false;
@@ -68,7 +68,7 @@ function DrawObstacles(){
             var ObColor = "purple";
         }
         if(Ob[4] == "dynamicx"){
-            var ObColor = "blue";
+            var ObColor = "red";
             if(Ob[7] == "up"){
                 Ob[0] += 1;
             }
@@ -84,7 +84,18 @@ function DrawObstacles(){
         }
         if(Ob[4] == "dynamicy"){
             var ObColor = "orange";
-            Ob[0] += 1;
+            if(Ob[7] == "up"){
+                Ob[1] += 1;
+            }
+            if(Ob[7] == "down"){
+                Ob[1] -= 1;
+            }
+            if(Ob[1] >= Ob[6]){
+                Ob[8] = "down";
+            }
+            if(Ob[1] <= Ob[5]){
+                Ob[8] = "up";
+            }
         }
         c.fillStyle = ObColor;
         c.fillRect(Ob[0]*20, Ob[1]*20, Ob[2]*20, Ob[3]*20);
