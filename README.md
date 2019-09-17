@@ -3,27 +3,15 @@ DO NOT TOUCH THE LEVELONE.js UNTIL WE ARE DONE WITH GAME MECHANICS
 
 
 # MentalWarz
-(LilKalebFTW) Reorganized the file placement. We will use this file to talk about announcements because it automaticly shows up.
 
-#Tasks
-(LilKalebFTW)
-Decide style of game,
-Create elements and sprites,
-Create Main Functionality of the game before we add extra toxic stuff
-
-
-Because I don't have discord on my laptop :thinking:
-What about your phone :thinking:
-
-
+DON'T USE CANVAS FOR THE LEVEL ONE HTML PAGE. We need to use elements because canvas is all js and we only have one person on javascript.
+We will use divs and id's instead of canvas, which will also make our code cleaner. (DO NOT IMPLEMENT CANVAS CODE FROM TESTLEVEL INTO LEVEL ONE)
 
 #Jobs
 LilKalebFTW - HTML-er + CSS-er + organizer
 RubixCube - Javascript-er
 Comrade Thotsky- Freeloader
 Razboy20 - Css-er + HTML-er + >:(
-
-
 
 
 #Discord
