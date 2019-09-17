@@ -18,3 +18,9 @@ h1{
    top: 200px;
    left: 200px;
 }
+
+.edge {
+  width: 800px;
+  height: 600px;
+  border: black solid 3px;
+}
