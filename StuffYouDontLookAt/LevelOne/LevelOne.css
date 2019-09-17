@@ -1,6 +1,17 @@
 h1{
     color:black;
 }
-#gameScreen{
-    border: 3px solid black;
+
+.playerdiv {
+  width: 50px;
+  height: 50px;
+  background: red;
+  border: black solid 1px;
+}
+
+.bordertest {
+   width: 300px;
+   height: 60px;
+   background: Aqua;
+   border: green solid 1px;
 }
