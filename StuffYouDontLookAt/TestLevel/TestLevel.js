@@ -1,164 +1,106 @@
-let canvas = document.getElementById("gameScreen");
-let c = canvas.getContext("2d");
-$MyCanvas = $("#gameScreen");
-var size = 20;
-var position = [0,29];
-var Obsticals = [[5,10,2,2,"dynamicy", 5, 10, "up"]];
-var color = "blue";
-var jump = false;
-var left = false;
-var right = false;
-document.addEventListener("keydown", function(event){
-    console.log(event.which);
-    // w
-    if(event.which == 87){
-      ErasePlayer();
-        if(jump == false){
-            position[1] -= 3;
-            jump = true;
-            if(left == true){
-              position[0] -= 2;
-            }
-            if(right == true){
-              position[0] += 2;
-            }
-        }
+// let canvas = document.getElementById("gameScreen");
+// let c = canvas.getContext("2d");
+let canvas = $("#gameScreen");
+const canvasBounds = { bottom: 500, top: 0, left: 0, right: 750 };
+const player = { height: 40, width: 40 };
+let playerPos = { x: 40, y: 480 };
+let playerSpeed = { x: 0, y: 0 };
+const friction = 0.89;
+const airfriction = 0.97;
+const gravity = 0.8;
+let directions = { left: false, right: false, up: false };
+const speed = 7.5;
+const speedIncrement = 0.8;
+const jumpSpeed = 20;
+let onGround = true;
 
-        DrawPlayer();
-
-    }
-    //a
-    if(event.which == 65){
-        ErasePlayer();
-        position[0] -= 1;
-        if(position[0] <= 0){
-            position[0] = 0;
-        }
-        Obsticals.forEach(Ob => {
-            if(position[0] == Ob[0] - Ob[2] + 1){
-              if(position[1] == Ob[1] + Ob[3] - 1){
-                position[0] += 1;
-              }
-            }
-        });
-        DrawPlayer();
-        left = true;
-    }
-    //d
-    if(event.which == 68){
-        ErasePlayer();
-        position[0] += 1;
-        if(position[0] >= 40){
-            position[0] = 40;
-        }
-        Obsticals.forEach(Ob => {
-            if(position[0] == Ob[0]){
-              if(position[1] == Ob[1] + Ob[3] - 1){
-                position[0] -= 1;
-              }
-            }
-        });
-        DrawPlayer();
-        right = true;
-    }
-    //space
-    if(event.which == 32){
-      ErasePlayer();
-        if(jump == false){
-            position[1] -= 3;
-            jump = true;
-            if(left == true){
-              position[0] -= 2;
-            }
-            if(right == true){
-              position[0] += 2;
-            }
-        }
-
-        DrawPlayer();
-    }
+$("body").keydown(function(event) {
+ if (event.keyCode === 37) {
+   directions.left = true;
+ }
+ if (event.keyCode === 39) {
+   directions.right = true;
+ }
+ if (event.keyCode === 38) {
+   directions.up = true;
+ }
+ //   console.log(event.keyCode);
 });
 
-document.addEventListener("keyup", function(event){
-    console.log(event.which);
-    //a
-    if(event.which == 65){
-        left = false;
-
-    }
-    //d
-    if(event.which == 68){
-      right = false;
-    }
+$("body").keyup(function(event) {
+ if (event.keyCode === 37) {
+   directions.left = false;
+ }
+ if (event.keyCode === 39) {
+   directions.right = false;
+ }
+ if (event.keyCode === 38) {
+   directions.up = false;
+ }
+ //
+ // console.log(event.keyCode);
 });
-function PlayerGravity(){
-    position[1] += 1;
-    if(position[1] >= 30){
-        position[1] -= 1;
-        jump = false;
-    }
-    DrawPlayer();
-}
-function DrawPlayer(){
-    c.fillStyle = color;
-    c.fillRect(position[0]*20, position[1]*20, size, size);
-}
-function ClearObstacles(){
-    Obsticals.forEach(Ob => {
-        c.clearRect(Ob[0]*20, Ob[1]*20, Ob[2]*20, Ob[3]*20);
-    });
-}
-function DrawObstacles(){
-    ClearObstacles();
-    Obsticals.forEach(Ob => {
-        if(Ob[4] == "static"){
-            var ObColor = "purple";
-        }
-        if(Ob[4] == "dynamicx"){
-            var ObColor = "red";
-            if(Ob[7] == "up"){
-                Ob[0] += 1;
-            }
-            if(Ob[7] == "down"){
-                Ob[0] -= 1;
-            }
-            if(Ob[0] >= Ob[6]){
-                Ob[7] = "down";
-            }
-            if(Ob[0] <= Ob[5]){
-                Ob[7] = "up";
-            }
-        }
-        if(Ob[4] == "dynamicy"){
-            var ObColor = "orange";
-            if(Ob[7] == "up"){
-                Ob[1] += 1;
-            }
-            if(Ob[7] == "down"){
-                Ob[1] -= 1;
-            }
-            if(Ob[1] >= Ob[6]){
-                Ob[7] = "down";
-            }
-            if(Ob[1] <= Ob[5]){
-                Ob[7] = "up";
-            }
-        }
-        c.fillStyle = ObColor;
-        c.fillRect(Ob[0]*20, Ob[1]*20, Ob[2]*20, Ob[3]*20);
 
-    });
+function render() {
+ canvas.clearCanvas();
+
+ if (directions.left) {
+   playerSpeed.x > -1 * speed
+     ? (playerSpeed.x -= speedIncrement)
+     : (playerSpeed.x = -1 * speed);
+ }
+ if (directions.right) {
+   playerSpeed.x < speed
+     ? (playerSpeed.x += speedIncrement)
+     : (playerSpeed.x = speed);
+ }
+ if (onGround && directions.up) playerSpeed.y = -1 * jumpSpeed;
+
+ playerSpeed.y += gravity;
+ playerPos.x += playerSpeed.x;
+ playerPos.y += playerSpeed.y;
+
+ onGround = false;
+
+ if (playerPos.y > canvasBounds.bottom - player.height / 2) {
+   playerPos.y = canvasBounds.bottom - player.height / 2;
+   playerSpeed.y = 0;
+   onGround = true;
+ }
+ if (playerPos.y < canvasBounds.top + player.height / 2) {
+   playerPos.y = canvasBounds.top + player.height / 2;
+   playerSpeed.y = 0;
+ }
+ if (playerPos.x > canvasBounds.right - player.height / 2) {
+   playerPos.x = canvasBounds.right - player.height / 2;
+   playerSpeed.x = 0;
+ }
+ if (playerPos.x < canvasBounds.left + player.height / 2) {
+   playerPos.x = canvasBounds.left + player.height / 2;
+   playerSpeed.x = 0;
+ }
+
+ if (
+   (!directions.left && !directions.right) ||
+   (directions.right && directions.left)
+ )
+   onGround ? (playerSpeed.x *= friction) : (playerSpeed.x *= airfriction);
+
+ if (playerSpeed.x < (10 ^ -4) && playerSpeed.x > 0) {
+   playerSpeed.x = 0;
+ }
+ if (playerSpeed.x > (-10 ^ -4) && playerSpeed.x < 0) {
+   playerSpeed.x = 0;
+ }
+
+
+ canvas.drawRect({
+   fillStyle: "#000",
+   x: playerPos.x,
+   y: playerPos.y,
+   width: player.width,
+   height: player.height
+ });
 }
-function CreateObstacle(x,y,sizex,sizey,type,first,second,direction){
-  Obsticals.push([x,y,sizex,sizey,type,first,second,direction]);
-}
-function ErasePlayer(){
-    c.clearRect(position[0]*20, position[1]*20, size, size);
-}
-function Game(){
-    ErasePlayer();
-    PlayerGravity();
-    DrawPlayer();
-    DrawObstacles();
-}
-var interval = setInterval(Game, 120);
+
+var interval = setInterval(render, 10);
